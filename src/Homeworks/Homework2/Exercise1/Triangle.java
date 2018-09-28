@@ -2,7 +2,7 @@ package Homeworks.Homework2.Exercise1;
 
 import java.lang.Math;
 
-public class Triangle {
+public class Triangle extends Shape{
     private int side;
     private double height;
 
