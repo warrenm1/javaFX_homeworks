@@ -7,7 +7,9 @@ public class Shape {
 
     public Shape(int s){ side = s; }
 
-    public int getSide() { return side; }
+    public int getSide() { return this.side; }
 
-    public void setSide(int s) { side = s; return; }
+    public void setSide(int s) { this.side = s; return; }
+
+    public double getArea(){return 0.0;}
 }

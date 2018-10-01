@@ -26,6 +26,10 @@ public class TestShape {
         shapes.add(pyramid);
         shapes.add(pyr);
 
-
+        for (int i = 0; i < shapes.size(); i++){
+            System.out.println("***********************************");
+            System.out.println("Class: " + shapes.get(i));
+            System.out.println("Side: " + shapes.get(i).getArea());
+        }
     }
 }

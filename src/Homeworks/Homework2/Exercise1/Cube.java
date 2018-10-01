@@ -15,5 +15,5 @@ public class Cube extends Shape {
 
     public void setSide(int s){ side = s; return; }
 
-    public int getArea(){ return 6 * side * side * side; }
+    public double getArea(){ return 6 * side * side * side; }
 }

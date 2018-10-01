@@ -11,5 +11,5 @@ public class Square extends Shape {
 
     public void setSide(int n){ side = n; return;}
 
-    public int getArea(){ return side * side; }
+    public double getArea(){ return side * side; }
 }
