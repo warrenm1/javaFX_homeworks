@@ -4,7 +4,7 @@ import java.util.*;
 
 public class TestShape {
     public static void main(String args[]){
-        ArrayList shapes = new ArrayList();
+        ArrayList<Shape> shapes = new ArrayList();
 
         Shape square = new Square();
         Shape cube = new Cube();
@@ -27,9 +27,9 @@ public class TestShape {
         shapes.add(pyr);
 
         for (int i = 0; i < shapes.size(); i++){
-            System.out.println("***********************************");
+            System.out.println("******************************************************");
             System.out.println("Class: " + shapes.get(i));
-            System.out.println("Side: " + shapes.get(i).getArea());
+            System.out.println("Area: " + shapes.get(i).getArea());
         }
     }
 }

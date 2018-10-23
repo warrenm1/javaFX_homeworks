@@ -7,9 +7,9 @@ public class Square extends Shape {
 
     public Square(int s){ side = s; }
 
-    public int getSide(){ return side; }
+    public int getSide(){ return this.side; }
 
     public void setSide(int n){ side = n; return;}
 
-    public double getArea(){ return side * side; }
+    public double getArea(){ return getSide() * getSide(); }
 }

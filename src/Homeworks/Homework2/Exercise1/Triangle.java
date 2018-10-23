@@ -16,8 +16,8 @@ public class Triangle extends Shape{
         height = s * Math.sqrt(3) / 2;
     }
 
-    public int getSide(){ return side; }
-    public double getHeight(){ return height; }
+    public int getSide(){ return this.side; }
+    public double getHeight(){ return this.height; }
 
     public void setSide(int s){
         side = s;
@@ -25,5 +25,5 @@ public class Triangle extends Shape{
         return;
     }
 
-    public double getArea(){ return (1/2) * side * height; }
+    public double getArea(){ return (1/2) * getSide() * getHeight(); }
 }

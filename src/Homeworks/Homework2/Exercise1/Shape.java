@@ -9,7 +9,7 @@ public class Shape {
 
     public int getSide() { return this.side; }
 
-    public void setSide(int s) { this.side = s; return; }
+    public void setSide(int s) { side = s; return; }
 
     public double getArea(){return 0.0;}
 }
