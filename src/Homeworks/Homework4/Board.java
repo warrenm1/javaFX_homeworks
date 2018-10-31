@@ -3,8 +3,20 @@ package Homeworks.Homework4;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
+
+import java.util.ArrayList;
 
 public class Board extends Pane {
+    private Rectangle rectangle = new Rectangle(400,360,Color.web("#0f2439"));
+
+    private Rectangle column1 = new Rectangle(30,30,40,290);
+    private Rectangle column2 = new Rectangle(80,30,40,290);
+    private Rectangle column3 = new Rectangle(130,30,40,290);
+    private Rectangle column4 = new Rectangle(180,30,40,290);
+    private Rectangle column5 = new Rectangle(230,30,40,290);
+    private Rectangle column6 = new Rectangle(280,30,40,290);
+    private Rectangle column7 = new Rectangle(330,30,40,290);
     //Row 1
     private Circle c11 = new Circle(50, 50, 20, Color.WHITE);
     private Circle c12 = new Circle(100, 50, 20, Color.WHITE);
@@ -54,7 +66,86 @@ public class Board extends Pane {
     private Circle c66 = new Circle(300, 300, 20, Color.WHITE);
     private Circle c67 = new Circle(350, 300, 20, Color.WHITE);
 
+    public ArrayList<Circle> col1Circles(){
+        ArrayList<Circle> col1 = new ArrayList();
+        col1.add(0,c11);
+        col1.add(1,c21);
+        col1.add(2,c31);
+        col1.add(3,c41);
+        col1.add(4,c51);
+        col1.add(5,c61);
+        return col1;
+    }
+
+    public ArrayList<Circle> col2Circles(){
+        ArrayList<Circle> col2 = new ArrayList();
+        col2.add(0,c12);
+        col2.add(1,c22);
+        col2.add(2,c32);
+        col2.add(3,c42);
+        col2.add(4,c52);
+        col2.add(5,c62);
+        return col2;
+    }
+
+    public ArrayList<Circle> col3Circles(){
+        ArrayList<Circle> col3 = new ArrayList();
+        col3.add(0,c13);
+        col3.add(1,c23);
+        col3.add(2,c33);
+        col3.add(3,c43);
+        col3.add(4,c53);
+        col3.add(5,c63);
+        return col3;
+    }
+
+    public ArrayList<Circle> col4Circles(){
+        ArrayList<Circle> col4 = new ArrayList();
+        col4.add(0,c14);
+        col4.add(1,c24);
+        col4.add(2,c34);
+        col4.add(3,c44);
+        col4.add(4,c54);
+        col4.add(5,c64);
+        return col4;
+    }
+
+    public ArrayList<Circle> col5Circles(){
+        ArrayList<Circle> col5 = new ArrayList();
+        col5.add(0,c15);
+        col5.add(1,c25);
+        col5.add(2,c35);
+        col5.add(3,c45);
+        col5.add(4,c55);
+        col5.add(5,c65);
+        return col5;
+    }
+
+    public ArrayList<Circle> col6Circles(){
+        ArrayList<Circle> col6 = new ArrayList();
+        col6.add(0,c16);
+        col6.add(1,c26);
+        col6.add(2,c36);
+        col6.add(3,c46);
+        col6.add(4,c56);
+        col6.add(5,c66);
+        return col6;
+    }
+
+    public ArrayList<Circle> col7Circles(){
+        ArrayList<Circle> col7 = new ArrayList();
+        col7.add(0,c17);
+        col7.add(1,c27);
+        col7.add(2,c37);
+        col7.add(3,c47);
+        col7.add(4,c57);
+        col7.add(5,c67);
+        return col7;
+    }
+
     public Board() {
+        this.getChildren().add(getRectangle(rectangle));
+
         this.getChildren().add(getCircle(c11));
         this.getChildren().add(getCircle(c12));
         this.getChildren().add(getCircle(c13));
@@ -97,17 +188,39 @@ public class Board extends Pane {
         this.getChildren().add(getCircle(c65));
         this.getChildren().add(getCircle(c66));
         this.getChildren().add(getCircle(c67));
-    }
+
+        this.getChildren().add(getColumn1());
+        this.getChildren().add(getColumn2());
+        this.getChildren().add(getColumn3());
+        this.getChildren().add(getColumn4());
+        this.getChildren().add(getColumn5());
+        this.getChildren().add(getColumn6());
+        this.getChildren().add(getColumn7());
+    }//Board Constructor
+
+    public Rectangle getRectangle(Rectangle rectangle){
+        return rectangle;
+    }//getRectangle
+
+    public Rectangle getColumn1(){ column1.setFill(Color.TRANSPARENT); return column1; }
+    public Rectangle getColumn2(){ column2.setFill(Color.TRANSPARENT); return column2; }
+    public Rectangle getColumn3(){ column3.setFill(Color.TRANSPARENT); return column3; }
+    public Rectangle getColumn4(){ column4.setFill(Color.TRANSPARENT); return column4; }
+    public Rectangle getColumn5(){ column5.setFill(Color.TRANSPARENT); return column5; }
+    public Rectangle getColumn6(){ column6.setFill(Color.TRANSPARENT); return column6; }
+    public Rectangle getColumn7(){ column7.setFill(Color.TRANSPARENT); return column7; }
+
+
 
     public Circle getCircle(Circle cxx) {
         return cxx;
-    }
+    }//getCircle
 
     public void setCircleFill(Circle cxx, double red, double green, double blue) {
         cxx.setFill(Color.color(red,green,blue));
-    }
+    }//setCircleFill rgb
 
     public void setCircleFill(Circle cxx, String hex) {
         cxx.setFill(Color.web(hex));
-    }
+    }//setCircleFill hex
 }//Board Class
