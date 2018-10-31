@@ -1,5 +1,7 @@
 package Homeworks.Homework4;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -15,6 +17,8 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
 import java.awt.event.ActionEvent;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -98,7 +102,7 @@ public class ConnectFour extends Application {
         if (player1){ matrix[col1_available][0] = 'R'; }
         else { matrix[col1_available][0] = 'Y'; }
 
-        dropPiece(col1);
+        dropPiece(col1, col1_available);
         checkWin();
 
         if (win == true || tie == true){ gameOver(); }
@@ -112,7 +116,7 @@ public class ConnectFour extends Application {
         if (player1){ matrix[col2_available][1] = 'R'; }
         else { matrix[col2_available][1] = 'Y'; }
 
-        dropPiece(col2);
+        dropPiece(col2,col2_available);
         checkWin();
 
         if (win == true || tie == true){ gameOver(); }
@@ -126,7 +130,7 @@ public class ConnectFour extends Application {
         if (player1) { matrix[col3_available][2] = 'R'; }
         else { matrix[col3_available][2] = 'Y'; }
 
-        dropPiece(col3);
+        dropPiece(col3,col3_available);
         checkWin();
 
         if (win == true || tie == true){ gameOver(); }
@@ -140,7 +144,7 @@ public class ConnectFour extends Application {
         if (player1) { matrix[col4_available][3] = 'R'; }
         else { matrix[col4_available][3] = 'Y'; }
 
-        dropPiece(col4);
+        dropPiece(col4,col4_available);
         checkWin();
 
         if (win == true || tie == true){ gameOver(); }
@@ -154,7 +158,7 @@ public class ConnectFour extends Application {
         if (player1) { matrix[col5_available][4] = 'R'; }
         else { matrix[col5_available][4] = 'Y'; }
 
-        dropPiece(col5);
+        dropPiece(col5,col5_available);
         checkWin();
 
         if (win == true || tie == true){ gameOver(); }
@@ -168,7 +172,7 @@ public class ConnectFour extends Application {
         if (player1) { matrix[col6_available][5] = 'R'; }
         else { matrix[col6_available][5] = 'Y'; }
 
-        dropPiece(col6);
+        dropPiece(col6,col6_available);
         checkWin();
 
         if (win == true || tie == true){ gameOver(); }
@@ -182,7 +186,7 @@ public class ConnectFour extends Application {
         if (player1) { matrix[col7_available][6] = 'R'; }
         else { matrix[col7_available][6] = 'Y'; }
 
-        dropPiece(col7);
+        dropPiece(col7,col7_available);
         checkWin();
 
         if (win == true || tie == true){ gameOver(); }
@@ -235,7 +239,7 @@ public class ConnectFour extends Application {
         //horizontal win
         for( int i = 0; i < 6; i++){
             for(int j = 0; j < 4; j++) {
-                if (matrix[i][j] == ' ') {
+                if (matrix[j][i] == ' ') {
                     dummy += 0;
                 } else if (matrix[i][j] == matrix[i][j + 1] && matrix[i][j] == matrix[i][j + 2] && matrix[i][j] == matrix[i][j + 3]) {
                     win = true;
@@ -324,7 +328,6 @@ public class ConnectFour extends Application {
     }
 
     private void highlight() {
-        //Todo: Highlight winning pieces
         ArrayList<Circle> col = col1;
         if(highlighti1 == 0){ col = col1; }
         else if (highlighti1 == 1){ col = col2; }
@@ -367,8 +370,15 @@ public class ConnectFour extends Application {
         col.get(highlightj4).setFill(Color.PLUM);
     }
 
-    private void dropPiece(ArrayList<Circle> col) {
-        //TODO: Animate dropping Piece
+    private void dropPiece(ArrayList<Circle> col, int available) {
+        if (available == 0){ return; }
+        for(int i = 0; i <= available; i++){
+            if (i != 0){ col.get(i -1).setFill(Color.WHITE); }
+            if (player1){ col.get(i).setFill(Color.RED); }
+            else { col.get(i).setFill(Color.YELLOW); }
+
+
+        }
     }
 }
 
