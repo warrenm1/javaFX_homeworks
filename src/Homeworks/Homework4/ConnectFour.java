@@ -334,7 +334,7 @@ public class ConnectFour extends Application {
         else if (highlighti1 == 5){ col = col6; }
         else if (highlighti1 == 6){ col = col7; }
 
-        col.get(highlightj1).setFill(Color.GOLD);
+        col.get(highlightj1).setFill(Color.PLUM);
 
         if(highlighti2 == 0){ col = col1; }
         else if (highlighti2 == 1){ col = col2; }
@@ -344,7 +344,7 @@ public class ConnectFour extends Application {
         else if (highlighti2 == 5){ col = col6; }
         else if (highlighti2 == 6){ col = col7; }
 
-        col.get(highlightj2).setFill(Color.GOLD);
+        col.get(highlightj2).setFill(Color.PLUM);
 
         if(highlighti3 == 0){ col = col1; }
         else if (highlighti3 == 1){ col = col2; }
@@ -354,7 +354,7 @@ public class ConnectFour extends Application {
         else if (highlighti3 == 5){ col = col6; }
         else if (highlighti3 == 6){ col = col7; }
 
-        col.get(highlightj3).setFill(Color.GOLD);
+        col.get(highlightj3).setFill(Color.PLUM);
 
         if(highlighti4 == 0){ col = col1; }
         else if (highlighti4 == 1){ col = col2; }
@@ -364,7 +364,7 @@ public class ConnectFour extends Application {
         else if (highlighti4 == 5){ col = col6; }
         else if (highlighti4 == 6){ col = col7; }
 
-        col.get(highlightj4).setFill(Color.GOLD);
+        col.get(highlightj4).setFill(Color.PLUM);
     }
 
     private void dropPiece(ArrayList<Circle> col) {
