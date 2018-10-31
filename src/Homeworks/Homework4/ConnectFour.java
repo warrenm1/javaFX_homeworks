@@ -48,25 +48,25 @@ public class ConnectFour extends Application {
     int col6_available = 6;
     int col7_available = 6;
     int dummy = 0;
-    int highlighti1;
-    int highlightj1;
-    int highlighti2;
-    int highlightj2;
-    int highlighti3;
-    int highlightj3;
-    int highlighti4;
-    int highlightj4;
+    int highlightr1;
+    int highlightc1;
+    int highlightr2;
+    int highlightc2;
+    int highlightr3;
+    int highlightc3;
+    int highlightr4;
+    int highlightc4;
 
     Circle p1_turn = new Circle(5,Color.RED);
     Circle p2_turn = new Circle(5,Color.TRANSPARENT);
 
-    char[][] matrix = new char[6][7];
+    char[][] matrix = new char[7][6];
 
     @Override
     public void start(Stage primaryStage) {
         BorderPane borderPane = new BorderPane();
 
-        for(int i = 0; i < 6; i++){ for(int j = 0; j < 7; j++){ matrix[i][j] = ' '; } }
+        for(int i = 0; i < 7; i++){ for(int j = 0; j < 6; j++){ matrix[i][j] = ' '; } }
 
         ((Board) board).getColumn1().setOnMouseClicked(e -> handleMouseClickCol1());
         ((Board) board).getColumn2().setOnMouseClicked(e -> handleMouseClickCol2());
@@ -99,8 +99,8 @@ public class ConnectFour extends Application {
         if (col1_available == 0){ return; }
         col1_available -= 1;
 
-        if (player1){ matrix[col1_available][0] = 'R'; }
-        else { matrix[col1_available][0] = 'Y'; }
+        if (player1){ matrix[0][col1_available] = 'R'; }
+        else { matrix[0][col1_available] = 'Y'; }
 
         dropPiece(col1, col1_available);
         checkWin();
@@ -113,8 +113,8 @@ public class ConnectFour extends Application {
         if (col2_available == 0){ return; }
         col2_available -= 1;
 
-        if (player1){ matrix[col2_available][1] = 'R'; }
-        else { matrix[col2_available][1] = 'Y'; }
+        if (player1){ matrix[1][col2_available] = 'R'; }
+        else { matrix[1][col2_available] = 'Y'; }
 
         dropPiece(col2,col2_available);
         checkWin();
@@ -127,8 +127,8 @@ public class ConnectFour extends Application {
         if (col3_available == 0){ return; }
         col3_available -= 1;
 
-        if (player1) { matrix[col3_available][2] = 'R'; }
-        else { matrix[col3_available][2] = 'Y'; }
+        if (player1) { matrix[2][col3_available] = 'R'; }
+        else { matrix[2][col3_available] = 'Y'; }
 
         dropPiece(col3,col3_available);
         checkWin();
@@ -141,8 +141,8 @@ public class ConnectFour extends Application {
         if (col4_available == 0){ return; }
         col4_available -= 1;
 
-        if (player1) { matrix[col4_available][3] = 'R'; }
-        else { matrix[col4_available][3] = 'Y'; }
+        if (player1) { matrix[3][col4_available] = 'R'; }
+        else { matrix[3][col4_available] = 'Y'; }
 
         dropPiece(col4,col4_available);
         checkWin();
@@ -155,8 +155,8 @@ public class ConnectFour extends Application {
         if (col5_available == 0){ return; }
         col5_available -= 1;
 
-        if (player1) { matrix[col5_available][4] = 'R'; }
-        else { matrix[col5_available][4] = 'Y'; }
+        if (player1) { matrix[4][col5_available]= 'R'; }
+        else { matrix[4][col5_available] = 'Y'; }
 
         dropPiece(col5,col5_available);
         checkWin();
@@ -169,8 +169,8 @@ public class ConnectFour extends Application {
         if (col6_available == 0){ return; }
         col6_available -= 1;
 
-        if (player1) { matrix[col6_available][5] = 'R'; }
-        else { matrix[col6_available][5] = 'Y'; }
+        if (player1) { matrix[5][col6_available] = 'R'; }
+        else { matrix[5][col6_available] = 'Y'; }
 
         dropPiece(col6,col6_available);
         checkWin();
@@ -183,8 +183,8 @@ public class ConnectFour extends Application {
         if (col7_available == 0){ return; }
         col7_available -= 1;
 
-        if (player1) { matrix[col7_available][6] = 'R'; }
-        else { matrix[col7_available][6] = 'Y'; }
+        if (player1) { matrix[6][col7_available] = 'R'; }
+        else { matrix[6][col7_available] = 'Y'; }
 
         dropPiece(col7,col7_available);
         checkWin();
@@ -228,158 +228,141 @@ public class ConnectFour extends Application {
             p2_turn.setFill(Color.TRANSPARENT);
         }
         return;
-    }
+    }//Crunch Wrap
 
     private void checkWin(){
-        //Checking if the game is a tie
-        if(col1_available == 0 && col2_available == 0 && col3_available == 0 && col4_available == 0 && col5_available == 0 && col6_available == 0 && col7_available == 0){
-            tie = true;
-        }
-        //check win
-        //horizontal win
-        for( int i = 0; i < 6; i++){
-            for(int j = 0; j < 4; j++) {
-                if (matrix[j][i] == ' ') {
-                    dummy += 0;
-                } else if (matrix[i][j] == matrix[i][j + 1] && matrix[i][j] == matrix[i][j + 2] && matrix[i][j] == matrix[i][j + 3]) {
+        if(col1_available == 0 && col2_available == 0 && col3_available == 0 && col4_available == 0 && col5_available == 0 && col6_available == 0 && col7_available == 0){ tie = true; }
+        for( int row = 0; row < 6; row++){
+            for (int col = 0; col < 4; col++){
+                if(matrix[col][row] == ' '){ dummy += 0; }
+                else if (matrix[col][row] == matrix[col+1][row] && matrix[col][row] == matrix[col+2][row] && matrix[col][row] == matrix[col+3][row]){
                     win = true;
-                    //highlight elements
-                    highlighti1 = i;
-                    highlighti2 = i;
-                    highlighti3 = i;
-                    highlighti4 = i;
 
-                    highlightj1 = j;
-                    highlightj2 = j+1;
-                    highlightj3 = j+2;
-                    highlightj4 = j+3;
+                    highlightr1 = row;
+                    highlightr2 = row;
+                    highlightr3 = row;
+                    highlightr4 = row;
+
+                    highlightc1 = col;
+                    highlightc2 = col+1;
+                    highlightc3 = col+2;
+                    highlightc4 = col+3;
 
                     highlight();
-                }
-            }
-        }
+                }//if horizontal win
+            }//column for loop
+        }//row for loop
 
-        //vertical win
-        for( int j = 0; j < 7; j++){
-            for (int i = 0; i < 3; i++){
-                if (matrix[i][j] == ' '){ dummy += 0; }
-                else if (matrix[i][j] == matrix[i+1][j] && matrix[i][j] == matrix [i+2][j] && matrix[i][j] == matrix[i+3][j]){
+        for (int col = 0; col < 7; col++){
+            for (int row = 0; row < 3; row++){
+                if(matrix[col][row] == ' '){ dummy += 0; }
+                else if(matrix[col][row] == matrix[col][row+1] && matrix[col][row] == matrix[col][row+2] && matrix[col][row] == matrix[col][row+3]){
                     win = true;
-                    //highlight elements
-                    highlighti1 = i;
-                    highlighti2 = i+1;
-                    highlighti3 = i+2;
-                    highlighti4 = i+3;
 
-                    highlightj1 = j;
-                    highlightj2 = j;
-                    highlightj3 = j;
-                    highlightj4 = j;
+                    highlightr1 = row;
+                    highlightr2 = row+1;
+                    highlightr3 = row+2;
+                    highlightr4 = row+3;
+
+                    highlightc1 = col;
+                    highlightc2 = col;
+                    highlightc3 = col;
+                    highlightc4 = col;
 
                     highlight();
-                }
-            }
-        }
+                }//if vertical win
+            }//row for loop
+        }//column for loop
 
-        // diagonal \ win
-        for( int i = 0; i < 3; i++){
-            for (int j = 0; j < 4; j++){
-                if (matrix[i][j] == ' '){ dummy += 0; }
-                else if (matrix[i][j] == matrix[i+1][j+1] && matrix[i][j] == matrix[i+2][j+2] && matrix[i][j] == matrix[i+3][j+3]){
+        for(int row = 0; row < 3; row++){
+            for(int col = 0; col < 4; col++){
+                if(matrix[col][row] == ' '){ dummy += 0; }
+                else if (matrix[col][row] == matrix[col+1][row+1] && matrix[col][row] == matrix[col+2][row+2] && matrix[col][row] == matrix[col+3][row+3]){
                     win = true;
-                    //highlight elements
-                    highlighti1 = i;
-                    highlighti2 = i+1;
-                    highlighti3 = i+2;
-                    highlighti4 = i+3;
 
-                    highlightj1 = j;
-                    highlightj2 = j+1;
-                    highlightj3 = j+2;
-                    highlightj4 = j+3;
+                    highlightr1 = row;
+                    highlightr2 = row+1;
+                    highlightr3 = row+2;
+                    highlightr4 = row+3;
+
+                    highlightc1 = col;
+                    highlightc2 = col+1;
+                    highlightc3 = col+2;
+                    highlightc4 = col+3;
 
                     highlight();
-                }
-            }
-        }
+                }//if \ diagonal win
+            }//column for loop
+        }//row for loop
 
-        // diagonal / win
-        for(  int i = 0; i < 3; i++){
-            for( int j = 4; j < 7; j++){
-                if (matrix[i][j] == ' '){ dummy += 0; }
-                else if (matrix[i][j] == matrix[i+1][j-1] && matrix[i][j] == matrix[i+2][j-2] && matrix[i][j] == matrix[i+3][j-3]){
+        for(int row = 0; row < 3; row++){
+            for(int col = 3; col < 7; col ++){
+                if(matrix[col][row] == ' '){ dummy += 0;}
+                else if (matrix[col][row] == matrix[col-1][row+1] && matrix[col][row] == matrix[col-2][row+2] && matrix[col][row] == matrix[col-3][row+3]){
                     win = true;
-                    //highlight elements
-                    highlighti1 = i;
-                    highlighti2 = i+1;
-                    highlighti3 = i+2;
-                    highlighti4 = i+3;
 
-                    highlightj1 = j;
-                    highlightj2 = j-1;
-                    highlightj3 = j-2;
-                    highlightj4 = j-3;
+                    highlightr1 = row;
+                    highlightr2 = row+1;
+                    highlightr3 = row+2;
+                    highlightr4 = row+3;
+
+                    highlightc1 = col;
+                    highlightc2 = col-1;
+                    highlightc3 = col-2;
+                    highlightc4 = col-3;
 
                     highlight();
-                }
-            }
-        }
-        return;
+                }//if / diagonal win
+            }//column for loop
+        }//row for loop
     }
 
     private void highlight() {
         ArrayList<Circle> col = col1;
-        if(highlighti1 == 0){ col = col1; }
-        else if (highlighti1 == 1){ col = col2; }
-        else if (highlighti1 == 2){ col = col3; }
-        else if (highlighti1 == 3){ col = col4; }
-        else if (highlighti1 == 4){ col = col5; }
-        else if (highlighti1 == 5){ col = col6; }
-        else if (highlighti1 == 6){ col = col7; }
+        if(highlightc1 == 0){ col = col1; }
+        else if (highlightc1 == 1){ col = col2; }
+        else if (highlightc1 == 2){ col = col3; }
+        else if (highlightc1 == 3){ col = col4; }
+        else if (highlightc1 == 4){ col = col5; }
+        else if (highlightc1 == 5){ col = col6; }
+        else if (highlightc1 == 6){ col = col7; }
 
-        col.get(highlightj1).setFill(Color.PLUM);
+        col.get(highlightr1).setFill(Color.PLUM);
 
-        if(highlighti2 == 0){ col = col1; }
-        else if (highlighti2 == 1){ col = col2; }
-        else if (highlighti2 == 2){ col = col3; }
-        else if (highlighti2 == 3){ col = col4; }
-        else if (highlighti2 == 4){ col = col5; }
-        else if (highlighti2 == 5){ col = col6; }
-        else if (highlighti2 == 6){ col = col7; }
+        if(highlightc2 == 0){ col = col1; }
+        else if (highlightc2 == 1){ col = col2; }
+        else if (highlightc2 == 2){ col = col3; }
+        else if (highlightc2 == 3){ col = col4; }
+        else if (highlightc2 == 4){ col = col5; }
+        else if (highlightc2 == 5){ col = col6; }
+        else if (highlightc2 == 6){ col = col7; }
 
-        col.get(highlightj2).setFill(Color.PLUM);
+        col.get(highlightr2).setFill(Color.PLUM);
 
-        if(highlighti3 == 0){ col = col1; }
-        else if (highlighti3 == 1){ col = col2; }
-        else if (highlighti3 == 2){ col = col3; }
-        else if (highlighti3 == 3){ col = col4; }
-        else if (highlighti3 == 4){ col = col5; }
-        else if (highlighti3 == 5){ col = col6; }
-        else if (highlighti3 == 6){ col = col7; }
+        if(highlightc3 == 0){ col = col1; }
+        else if (highlightc3 == 1){ col = col2; }
+        else if (highlightc3 == 2){ col = col3; }
+        else if (highlightc3 == 3){ col = col4; }
+        else if (highlightc3 == 4){ col = col5; }
+        else if (highlightc3 == 5){ col = col6; }
+        else if (highlightc3 == 6){ col = col7; }
 
-        col.get(highlightj3).setFill(Color.PLUM);
+        col.get(highlightr3).setFill(Color.PLUM);
 
-        if(highlighti4 == 0){ col = col1; }
-        else if (highlighti4 == 1){ col = col2; }
-        else if (highlighti4 == 2){ col = col3; }
-        else if (highlighti4 == 3){ col = col4; }
-        else if (highlighti4 == 4){ col = col5; }
-        else if (highlighti4 == 5){ col = col6; }
-        else if (highlighti4 == 6){ col = col7; }
+        if(highlightc4 == 0){ col = col1; }
+        else if (highlightc4 == 1){ col = col2; }
+        else if (highlightc4 == 2){ col = col3; }
+        else if (highlightc4 == 3){ col = col4; }
+        else if (highlightc4 == 4){ col = col5; }
+        else if (highlightc4 == 5){ col = col6; }
+        else if (highlightc4 == 6){ col = col7; }
 
-        col.get(highlightj4).setFill(Color.PLUM);
-    }
+        col.get(highlightr4).setFill(Color.PLUM);
+    } //Crunch Wrap
 
     private void dropPiece(ArrayList<Circle> col, int available) {
-        if (available == 0){ return; }
-        for(int i = 0; i <= available; i++){
-            if (i != 0){ col.get(i -1).setFill(Color.WHITE); }
-            if (player1){ col.get(i).setFill(Color.RED); }
-            else { col.get(i).setFill(Color.YELLOW); }
-
-
-        }
-    }
+        if (available < 0){ return; }
+        if (player1){ col.get(available).setFill(Color.RED); }
+        else { col.get(available).setFill(Color.YELLOW); }
+    }//Crunch Wrap
 }
-
-
