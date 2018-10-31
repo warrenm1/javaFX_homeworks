@@ -199,8 +199,6 @@ public class ConnectFour extends Application {
         flowPane.getChildren().add(1,text2);
         flowPane.getChildren().add(2,bt);
 
-        System.out.println("Got to this point");
-
         Scene newScene = new Scene(flowPane,250,50);
         Stage ng = new Stage();
         ng.setTitle("Game Over");
@@ -326,9 +324,51 @@ public class ConnectFour extends Application {
     }
 
     private void highlight() {
+        //Todo: Highlight winning pieces
+        ArrayList<Circle> col = col1;
+        if(highlighti1 == 0){ col = col1; }
+        else if (highlighti1 == 1){ col = col2; }
+        else if (highlighti1 == 2){ col = col3; }
+        else if (highlighti1 == 3){ col = col4; }
+        else if (highlighti1 == 4){ col = col5; }
+        else if (highlighti1 == 5){ col = col6; }
+        else if (highlighti1 == 6){ col = col7; }
+
+        col.get(highlightj1).setFill(Color.GOLD);
+
+        if(highlighti2 == 0){ col = col1; }
+        else if (highlighti2 == 1){ col = col2; }
+        else if (highlighti2 == 2){ col = col3; }
+        else if (highlighti2 == 3){ col = col4; }
+        else if (highlighti2 == 4){ col = col5; }
+        else if (highlighti2 == 5){ col = col6; }
+        else if (highlighti2 == 6){ col = col7; }
+
+        col.get(highlightj2).setFill(Color.GOLD);
+
+        if(highlighti3 == 0){ col = col1; }
+        else if (highlighti3 == 1){ col = col2; }
+        else if (highlighti3 == 2){ col = col3; }
+        else if (highlighti3 == 3){ col = col4; }
+        else if (highlighti3 == 4){ col = col5; }
+        else if (highlighti3 == 5){ col = col6; }
+        else if (highlighti3 == 6){ col = col7; }
+
+        col.get(highlightj3).setFill(Color.GOLD);
+
+        if(highlighti4 == 0){ col = col1; }
+        else if (highlighti4 == 1){ col = col2; }
+        else if (highlighti4 == 2){ col = col3; }
+        else if (highlighti4 == 3){ col = col4; }
+        else if (highlighti4 == 4){ col = col5; }
+        else if (highlighti4 == 5){ col = col6; }
+        else if (highlighti4 == 6){ col = col7; }
+
+        col.get(highlightj4).setFill(Color.GOLD);
     }
 
     private void dropPiece(ArrayList<Circle> col) {
+        //TODO: Animate dropping Piece
     }
 }
 
