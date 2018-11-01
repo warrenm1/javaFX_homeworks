@@ -8,6 +8,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
@@ -56,6 +57,9 @@ public class ConnectFour extends Application {
     int highlightc3;
     int highlightr4;
     int highlightc4;
+    int p1_wins = 0;
+    int p2_wins = 0;
+    int ties = 0;
 
     Circle p1_turn = new Circle(5,Color.RED);
     Circle p2_turn = new Circle(5,Color.TRANSPARENT);
@@ -197,15 +201,21 @@ public class ConnectFour extends Application {
         Button bt = new Button("Exit");
         Text text = new Text();
         //Text text2 = new Text("Congratumalations!");
+        Text wins = new Text("P1:P2 -> " + Integer.toString(p1_wins) + ":" + Integer.toString(p2_wins));
+        Text totalTies = new Text("Ties: " + Integer.toString(ties));
         Button ngbt = new Button("New Game");
 
-        FlowPane flowPane = new FlowPane(10,5);
-        flowPane.getChildren().add(0, text);
+        GridPane gridPane = new GridPane();
+        gridPane.setHgap(15);
+        gridPane.setVgap(5);
+        gridPane.add(text,0,0);
         //flowPane.getChildren().add(1,text2);
-        flowPane.getChildren().add(1,ngbt);
-        flowPane.getChildren().add(2,bt);
+        gridPane.add(ngbt,1,1);
+        gridPane.add(bt,2,1);
+        gridPane.add(wins,1,0);
+        gridPane.add(totalTies,2,0);
 
-        Scene newScene = new Scene(flowPane,250,50);
+        Scene newScene = new Scene(gridPane,225,50);
         Stage ng = new Stage();
         ng.setTitle("Game Over");
         if (tie == true){ text.setText("CAT"); }
@@ -260,12 +270,15 @@ public class ConnectFour extends Application {
     }//Crunch Wrap
 
     private void checkWin(){
-        if(col1_available == 0 && col2_available == 0 && col3_available == 0 && col4_available == 0 && col5_available == 0 && col6_available == 0 && col7_available == 0){ tie = true; }
+        if(col1_available == 0 && col2_available == 0 && col3_available == 0 && col4_available == 0 && col5_available == 0 && col6_available == 0 && col7_available == 0){ tie = true; ties++; }
         for( int row = 0; row < 6; row++){
             for (int col = 0; col < 4; col++){
                 if(matrix[col][row] == ' '){ dummy += 0; }
                 else if (matrix[col][row] == matrix[col+1][row] && matrix[col][row] == matrix[col+2][row] && matrix[col][row] == matrix[col+3][row]){
                     win = true;
+
+                    if(player1){ p1_wins++; }
+                    else{ p2_wins++; }
 
                     highlightr1 = row;
                     highlightr2 = row;
@@ -288,6 +301,9 @@ public class ConnectFour extends Application {
                 else if(matrix[col][row] == matrix[col][row+1] && matrix[col][row] == matrix[col][row+2] && matrix[col][row] == matrix[col][row+3]){
                     win = true;
 
+                    if(player1){ p1_wins++; }
+                    else{ p2_wins++; }
+
                     highlightr1 = row;
                     highlightr2 = row+1;
                     highlightr3 = row+2;
@@ -309,6 +325,9 @@ public class ConnectFour extends Application {
                 else if (matrix[col][row] == matrix[col+1][row+1] && matrix[col][row] == matrix[col+2][row+2] && matrix[col][row] == matrix[col+3][row+3]){
                     win = true;
 
+                    if(player1){ p1_wins++; }
+                    else{ p2_wins++; }
+
                     highlightr1 = row;
                     highlightr2 = row+1;
                     highlightr3 = row+2;
@@ -329,6 +348,9 @@ public class ConnectFour extends Application {
                 if(matrix[col][row] == ' '){ dummy += 0;}
                 else if (matrix[col][row] == matrix[col-1][row+1] && matrix[col][row] == matrix[col-2][row+2] && matrix[col][row] == matrix[col-3][row+3]){
                     win = true;
+
+                    if(player1){ p1_wins++; }
+                    else{ p2_wins++; }
 
                     highlightr1 = row;
                     highlightr2 = row+1;
