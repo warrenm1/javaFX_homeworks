@@ -196,11 +196,13 @@ public class ConnectFour extends Application {
     private void gameOver() {
         Button bt = new Button("Exit");
         Text text = new Text();
-        Text text2 = new Text("Congratumalations!");
+        //Text text2 = new Text("Congratumalations!");
+        Button ngbt = new Button("New Game");
 
         FlowPane flowPane = new FlowPane(10,5);
         flowPane.getChildren().add(0, text);
-        flowPane.getChildren().add(1,text2);
+        //flowPane.getChildren().add(1,text2);
+        flowPane.getChildren().add(1,ngbt);
         flowPane.getChildren().add(2,bt);
 
         Scene newScene = new Scene(flowPane,250,50);
@@ -214,6 +216,33 @@ public class ConnectFour extends Application {
         ng.show();
 
         bt.setOnAction(e -> Platform.exit());
+        ngbt.setOnAction((e -> {newGame(); ng.close();}));
+    }
+
+    private void newGame() {
+        player1 = true;
+        tie = false;
+        win = false;
+
+        col1_available = 6;
+        col2_available = 6;
+        col3_available = 6;
+        col4_available = 6;
+        col5_available = 6;
+        col6_available = 6;
+        col7_available = 6;
+
+        for (int col = 0; col < 7; col++){ for (int row = 0; row < 6; row++){ matrix[col][row] = ' '; } }
+
+        for (int row = 0; row < 6; row++){
+            col1.get(row).setFill(Color.WHITE);
+            col2.get(row).setFill(Color.WHITE);
+            col3.get(row).setFill(Color.WHITE);
+            col4.get(row).setFill(Color.WHITE);
+            col5.get(row).setFill(Color.WHITE);
+            col6.get(row).setFill(Color.WHITE);
+            col7.get(row).setFill(Color.WHITE);
+        }
     }
 
     private void NextPlayer() {
