@@ -4,6 +4,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 import java.util.ArrayList;
 
@@ -65,6 +67,9 @@ public class Board extends Pane {
     private Circle c65 = new Circle(250, 300, 20, Color.WHITE);
     private Circle c66 = new Circle(300, 300, 20, Color.WHITE);
     private Circle c67 = new Circle(350, 300, 20, Color.WHITE);
+
+    private Circle ACircle = new Circle(12,Color.TRANSPARENT);
+    private Text A = new Text(10,340,"A");
 
     public ArrayList<Circle> col1Circles(){
         ArrayList<Circle> col1 = new ArrayList();
@@ -196,6 +201,14 @@ public class Board extends Pane {
         this.getChildren().add(getColumn5());
         this.getChildren().add(getColumn6());
         this.getChildren().add(getColumn7());
+
+        A.setFill(Color.WHITE);
+        A.setFont(Font.font(18));
+        ACircle.setStroke(Color.WHITE);
+        ACircle.setCenterX(15.5);
+        ACircle.setCenterY(335);
+        this.getChildren().add(A);
+        this.getChildren().add(ACircle);
     }//Board Constructor
 
     public Rectangle getRectangle(Rectangle rectangle){

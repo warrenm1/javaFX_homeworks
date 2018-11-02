@@ -97,7 +97,7 @@ public class ConnectFour extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-    }
+    }//Crunch Wrap
 
     private void handleMouseClickCol1() {
         if (col1_available == 0){ return; }
@@ -111,7 +111,7 @@ public class ConnectFour extends Application {
 
         if (win == true || tie == true){ gameOver(); }
         else{ NextPlayer(); return;}
-    }
+    }//Crunch Wrap
 
     private void handleMouseClickCol2() {
         if (col2_available == 0){ return; }
@@ -125,7 +125,7 @@ public class ConnectFour extends Application {
 
         if (win == true || tie == true){ gameOver(); }
         else{ NextPlayer(); return;}
-    }
+    }//Crunch Wrap
 
     private void handleMouseClickCol3() {
         if (col3_available == 0){ return; }
@@ -139,7 +139,7 @@ public class ConnectFour extends Application {
 
         if (win == true || tie == true){ gameOver(); }
         else{ NextPlayer(); return;}
-    }
+    }//Crunch Wrap
 
     private void handleMouseClickCol4() {
         if (col4_available == 0){ return; }
@@ -153,7 +153,7 @@ public class ConnectFour extends Application {
 
         if (win == true || tie == true){ gameOver(); }
         else{ NextPlayer(); return;}
-    }
+    }//Crunch Wrap
 
     private void handleMouseClickCol5() {
         if (col5_available == 0){ return; }
@@ -167,7 +167,7 @@ public class ConnectFour extends Application {
 
         if (win == true || tie == true){ gameOver(); }
         else{ NextPlayer(); return;}
-    }
+    }//Crunch Wrap
 
     private void handleMouseClickCol6() {
         if (col6_available == 0){ return; }
@@ -181,7 +181,7 @@ public class ConnectFour extends Application {
 
         if (win == true || tie == true){ gameOver(); }
         else{ NextPlayer(); return;}
-    }
+    }//Crunch Wrap
 
     private void handleMouseClickCol7() {
         if (col7_available == 0){ return; }
@@ -195,7 +195,7 @@ public class ConnectFour extends Application {
 
         if (win == true || tie == true){ gameOver(); }
         else{ NextPlayer(); return;}
-    }
+    }//Crunch Wrap
 
     private void gameOver() {
         Button bt = new Button("Exit");
@@ -227,7 +227,7 @@ public class ConnectFour extends Application {
 
         bt.setOnAction(e -> Platform.exit());
         ngbt.setOnAction((e -> {newGame(); ng.close();}));
-    }
+    }//Crunch Wrap
 
     private void newGame() {
         player1 = true;
@@ -253,7 +253,7 @@ public class ConnectFour extends Application {
             col6.get(row).setFill(Color.WHITE);
             col7.get(row).setFill(Color.WHITE);
         }
-    }
+    }//Crunch Wrap
 
     private void NextPlayer() {
         if (player1){
@@ -366,7 +366,7 @@ public class ConnectFour extends Application {
                 }//if / diagonal win
             }//column for loop
         }//row for loop
-    }
+    } //Crunch Wrap
 
     private void highlight() {
         ArrayList<Circle> col = col1;
