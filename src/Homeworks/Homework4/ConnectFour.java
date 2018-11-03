@@ -270,7 +270,6 @@ public class ConnectFour extends Application {
     }//Crunch Wrap
 
     private void checkWin(){
-        if(col1_available == 0 && col2_available == 0 && col3_available == 0 && col4_available == 0 && col5_available == 0 && col6_available == 0 && col7_available == 0){ tie = true; ties++; }
         for( int row = 0; row < 6; row++){
             for (int col = 0; col < 4; col++){
                 if(matrix[col][row] == ' '){ dummy += 0; }
@@ -366,6 +365,10 @@ public class ConnectFour extends Application {
                 }//if / diagonal win
             }//column for loop
         }//row for loop
+
+        if(!win){
+            if(col1_available == 0 && col2_available == 0 && col3_available == 0 && col4_available == 0 && col5_available == 0 && col6_available == 0 && col7_available == 0){ tie = true; ties++; }
+        }
     } //Crunch Wrap
 
     private void highlight() {
