@@ -4,9 +4,12 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -21,6 +24,7 @@ import java.io.File;
 public class Hangman extends Application {
 
     public HangingMan man = new HangingMan();
+    public Board board = new Board();
     public String GameMusic = "src\\music\\The_Legend_of_Samukai.mp3";
 
     public static void main(String[] args) {
@@ -30,8 +34,7 @@ public class Hangman extends Application {
     @Override
     public void start(Stage primaryStage){
         BorderPane borderPane = new BorderPane();
-        Gallows hangingStage = new Gallows();
-        Board board = new Board();
+        Gallows gallows = new Gallows();
 
         Media media = new Media(new File(GameMusic).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
@@ -39,12 +42,14 @@ public class Hangman extends Application {
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         MediaView mediaView = new MediaView(mediaPlayer);
         Pane pane = new Pane(mediaView);
+        HBox guessedLetters = new HBox(5);
 
 
         //Finished Product
-        borderPane.setCenter(hangingStage);
+        borderPane.setCenter(gallows);
         borderPane.setRight(board);
-        borderPane.setBottom(pane);
+        borderPane.setTop(pane);
+        borderPane.setBottom(guessedLetters);
 
         Scene scene = new Scene(borderPane,800,600);
         primaryStage.setTitle("Hangman");
@@ -87,5 +92,5 @@ public class Hangman extends Application {
 
         button.setOnAction(e -> Platform.exit());
         ngButton.setOnAction(e -> {man.reset(); ng.close();});
-    }
+    } //rewrite with a new idea?
 }

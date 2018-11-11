@@ -76,38 +76,50 @@ public class HangingMan extends Gallows {
         wrong.setFill(Color.DARKRED);
     }
 
+    //adds a shocked face and ends game when last limb is drawn
     public void incrementError(){
         error++;
+
+        incorrect();
+
+        if(error == 6) { lose(); }
+    }
+
+    //adds a shocked face and incorrect caption if guessed incorrectly and draws a limb
+    public void incorrect(){
         if(error < 7){
             if(super.getChildren().contains(wowFace)){ return; }
             if(super.getChildren().contains(smile)){ super.getChildren().remove(smile); }
             if(super.getChildren().contains(right)){ super.getChildren().remove(right); }
             super.getChildren().addAll(wowFace, wrong);
         }
-        else { lose(); }
 
         drawFigure();
     }
 
+    //adds a smile and correct caption if guessed correctly
     public void correct(){
         if(super.getChildren().contains(smile)){ return; }
         if(super.getChildren().contains(wowFace)){ super.getChildren().remove(wowFace); }
         if(super.getChildren().contains(wrong)){ super.getChildren().remove(wrong); }
         super.getChildren().addAll(smile,right);
     }
+
+    //adds a big smile if the game is won
     public void win(){
         if( super.getChildren().contains(wowFace)) { super.getChildren().remove(wowFace); }
         else if( super.getChildren().contains(smile)){ super.getChildren().remove(smile); }
         super.getChildren().add(bigSmile);
     }
+
+    //adds a sad face if the game is lost
     private void lose() {
         if(super.getChildren().contains(smile)){ super.getChildren().remove(smile); }
         else if(super.getChildren().contains(wowFace)){ super.getChildren().remove(wowFace); }
         super.getChildren().addAll(frown,tear);
-
-        //display missing letters
     }
 
+    //draws the hanging man limb by limb
     public void drawFigure(){
         if (error == 0){ reset(); }
 
@@ -132,6 +144,7 @@ public class HangingMan extends Gallows {
         else { return; }
     }
 
+    //sets up the game to defaults for a new game
     public void reset(){
         error = 0;
 
