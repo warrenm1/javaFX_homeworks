@@ -25,6 +25,8 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Thread.sleep;
+
 
 public class ConnectFour extends Application {
     Pane board = new Board();
@@ -100,101 +102,178 @@ public class ConnectFour extends Application {
     }//Crunch Wrap
 
     private void handleMouseClickCol1() {
-        if (col1_available == 0){ return; }
-        col1_available -= 1;
+        if(!win && !tie) {
+            if (col1_available == 0) {
+                return;
+            }
+            col1_available -= 1;
 
-        if (player1){ matrix[0][col1_available] = 'R'; }
-        else { matrix[0][col1_available] = 'Y'; }
+            if (player1) {
+                matrix[0][col1_available] = 'R';
+            } else {
+                matrix[0][col1_available] = 'Y';
+            }
 
-        dropPiece(col1, col1_available);
-        checkWin();
+            dropPiece(col1, col1_available);
+            checkWin();
 
-        if (win == true || tie == true){ gameOver(); }
-        else{ NextPlayer(); return;}
+            if (win == true || tie == true) {
+                gameOver();
+            } else {
+                NextPlayer();
+                return;
+            }
+        }
     }//Crunch Wrap
 
     private void handleMouseClickCol2() {
-        if (col2_available == 0){ return; }
-        col2_available -= 1;
+        if(!win && !tie) {
+            if (col2_available == 0) {
+                return;
+            }
+            col2_available -= 1;
 
-        if (player1){ matrix[1][col2_available] = 'R'; }
-        else { matrix[1][col2_available] = 'Y'; }
+            if (player1) {
+                matrix[1][col2_available] = 'R';
+            } else {
+                matrix[1][col2_available] = 'Y';
+            }
 
-        dropPiece(col2,col2_available);
-        checkWin();
+            dropPiece(col2, col2_available);
+            checkWin();
 
-        if (win == true || tie == true){ gameOver(); }
-        else{ NextPlayer(); return;}
+            if (win == true || tie == true) {
+                gameOver();
+            } else {
+                NextPlayer();
+                return;
+            }
+        }
     }//Crunch Wrap
 
     private void handleMouseClickCol3() {
-        if (col3_available == 0){ return; }
-        col3_available -= 1;
+        if(!win && !tie) {
+            if (col3_available == 0) {
+                return;
+            }
+            col3_available -= 1;
 
-        if (player1) { matrix[2][col3_available] = 'R'; }
-        else { matrix[2][col3_available] = 'Y'; }
+            if (player1) {
+                matrix[2][col3_available] = 'R';
+            } else {
+                matrix[2][col3_available] = 'Y';
+            }
 
-        dropPiece(col3,col3_available);
-        checkWin();
+            dropPiece(col3, col3_available);
+            checkWin();
 
-        if (win == true || tie == true){ gameOver(); }
-        else{ NextPlayer(); return;}
+            if (win == true || tie == true) {
+                gameOver();
+            } else {
+                NextPlayer();
+                return;
+            }
+        }
     }//Crunch Wrap
 
     private void handleMouseClickCol4() {
-        if (col4_available == 0){ return; }
-        col4_available -= 1;
+        if(!win && !tie) {
+            if (col4_available == 0) {
+                return;
+            }
+            col4_available -= 1;
 
-        if (player1) { matrix[3][col4_available] = 'R'; }
-        else { matrix[3][col4_available] = 'Y'; }
+            if (player1) {
+                matrix[3][col4_available] = 'R';
+            } else {
+                matrix[3][col4_available] = 'Y';
+            }
 
-        dropPiece(col4,col4_available);
-        checkWin();
+            dropPiece(col4, col4_available);
+            checkWin();
 
-        if (win == true || tie == true){ gameOver(); }
-        else{ NextPlayer(); return;}
+            if (win == true || tie == true) {
+                gameOver();
+            } else {
+                NextPlayer();
+                return;
+            }
+        }
     }//Crunch Wrap
 
     private void handleMouseClickCol5() {
-        if (col5_available == 0){ return; }
-        col5_available -= 1;
+        if(!win && !tie) {
+            if (col5_available == 0) {
+                return;
+            }
+            col5_available -= 1;
 
-        if (player1) { matrix[4][col5_available]= 'R'; }
-        else { matrix[4][col5_available] = 'Y'; }
+            if (player1) {
+                matrix[4][col5_available] = 'R';
+            } else {
+                matrix[4][col5_available] = 'Y';
+            }
 
-        dropPiece(col5,col5_available);
-        checkWin();
+            dropPiece(col5, col5_available);
+            checkWin();
 
-        if (win == true || tie == true){ gameOver(); }
-        else{ NextPlayer(); return;}
+            if (win == true || tie == true) {
+                gameOver();
+            } else {
+                NextPlayer();
+                return;
+            }
+        }
     }//Crunch Wrap
 
     private void handleMouseClickCol6() {
-        if (col6_available == 0){ return; }
-        col6_available -= 1;
+        if(!win && !tie) {
+            if (col6_available == 0) {
+                return;
+            }
+            col6_available -= 1;
 
-        if (player1) { matrix[5][col6_available] = 'R'; }
-        else { matrix[5][col6_available] = 'Y'; }
+            if (player1) {
+                matrix[5][col6_available] = 'R';
+            } else {
+                matrix[5][col6_available] = 'Y';
+            }
 
-        dropPiece(col6,col6_available);
-        checkWin();
+            dropPiece(col6, col6_available);
+            checkWin();
 
-        if (win == true || tie == true){ gameOver(); }
-        else{ NextPlayer(); return;}
+            if (win == true || tie == true) {
+                gameOver();
+            } else {
+                NextPlayer();
+                return;
+            }
+        }
     }//Crunch Wrap
 
     private void handleMouseClickCol7() {
-        if (col7_available == 0){ return; }
-        col7_available -= 1;
+        if(!win && !tie) {
+            if (col7_available == 0) {
+                return;
+            }
+            col7_available -= 1;
 
-        if (player1) { matrix[6][col7_available] = 'R'; }
-        else { matrix[6][col7_available] = 'Y'; }
+            if (player1) {
+                matrix[6][col7_available] = 'R';
+            } else {
+                matrix[6][col7_available] = 'Y';
+            }
 
-        dropPiece(col7,col7_available);
-        checkWin();
+            dropPiece(col7, col7_available);
+            checkWin();
 
-        if (win == true || tie == true){ gameOver(); }
-        else{ NextPlayer(); return;}
+            if (win == true || tie == true) {
+                gameOver();
+            } else {
+                NextPlayer();
+                return;
+            }
+        }
     }//Crunch Wrap
 
     private void gameOver() {

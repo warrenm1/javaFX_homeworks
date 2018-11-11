@@ -51,6 +51,42 @@ public class Hangman extends Application {
         head.setStrokeWidth(5);
         pane.getChildren().add(head);
 
+        //Face
+        Circle eyeL = new Circle(5);
+        eyeL.setCenterX(360);
+        eyeL.setCenterY(150);
+        eyeL.setFill(Color.BLACK);
+
+        Circle eyeR = new Circle(5);
+        eyeR.setCenterX(340);
+        eyeR.setCenterY(150);
+        eyeR.setFill(Color.BLACK);
+
+        Arc smile = new Arc(350,150,30,30,200,140);
+        smile.setType(ArcType.OPEN);
+        smile.setStroke(Color.BLACK);
+        smile.setFill(Color.WHITE);
+        smile.setStrokeWidth(5);
+
+        Arc frown = new Arc(350,200,30,30,30,120);
+        frown.setType(ArcType.OPEN);
+        frown.setStroke(Color.BLACK);
+        frown.setFill(Color.WHITE);
+        frown.setStrokeWidth(5);
+
+        Circle tear = new Circle(3);
+        tear.setCenterX(363.5);
+        tear.setCenterY(156);
+        tear.setFill(Color.POWDERBLUE);
+
+        Circle wowFace = new Circle(350, 175,15,Color.BLACK);
+
+        Arc bigSmile = new Arc(350,155,30,30,200,140);
+        bigSmile.setType(ArcType.OPEN);
+        bigSmile.setFill(Color.BLACK);
+
+        pane.getChildren().addAll(eyeL,eyeR,bigSmile);
+
         //Body
         Line body = new Line(350,200,350,400);
         body.setStroke(Color.BLACK);
