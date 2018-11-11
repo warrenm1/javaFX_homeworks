@@ -14,7 +14,8 @@ import java.util.stream.Stream;
 public class Board extends GridPane {
     private List<String> phrases = new ArrayList<>();
     private File file = new File("src\\Homeworks\\Homework5\\phrases.txt");
-    private List<char[]> chosenPhrase = new ArrayList<>(){};
+    private List<Vector<Text>> chosenPhrase = new ArrayList<>();
+    //private List<char[]> chosenPhrase = new ArrayList<>(){};
     //private Vector<Vector<Text>> correctLetters = new Vector<>();
 
     public Board(){
@@ -32,10 +33,11 @@ public class Board extends GridPane {
     private void selectPhrase() {
         int rand = (int)(Math.random()*phrases.size());
 
-        String[] temp = phrases.get(rand).split(" ");
-        //Vector<Text> temp1 = new Vector<>();
-        for (int i = 0; i < temp.length; i++){
-            chosenPhrase.add(temp[i].toCharArray());
+        String[] temp1 = phrases.get(rand).split(" ");
+        Vector<Text> temp2 = new Vector<>();
+        for (int i = 0; i < temp1.length; i++){
+            Text set = new Text(temp1[i]);
+            temp2.add(set);
             //for (int j = 0; j < chosenPhrase.get(i).length; j++){
             //    temp1.get(i).setText(" ");
             //}
@@ -45,14 +47,14 @@ public class Board extends GridPane {
 
     public boolean CheckLeter(char check){
         boolean correct = false;
-        for(int word = 0; word < chosenPhrase.size(); word++){
+        /*for(int word = 0; word < chosenPhrase.size(); word++){
             for(int letter = 0; letter < chosenPhrase.get(word).length; letter++){
                 if(check == letter){
                     displayLetter(word,letter);
                     correct = true;
                 }
             }
-        }
+        }*/
 
         return correct;
     }
