@@ -1,7 +1,6 @@
 package Homeworks.Homework5;
 
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 import java.io.*;
@@ -14,8 +13,7 @@ import java.util.stream.Stream;
 public class Board extends GridPane {
     private List<String> phrases = new ArrayList<>();
     private File file = new File("src\\Homeworks\\Homework5\\phrases.txt");
-    private List<Vector<Text>> chosenPhrase = new ArrayList<>();
-    //private List<char[]> chosenPhrase = new ArrayList<>(){};
+    private List<Vector<Text>> chosenPhrase = new ArrayList<Vector<Text>>();
     //private Vector<Vector<Text>> correctLetters = new Vector<>();
 
     public Board(){
@@ -33,15 +31,23 @@ public class Board extends GridPane {
     private void selectPhrase() {
         int rand = (int)(Math.random()*phrases.size());
 
-        String[] temp1 = phrases.get(rand).split(" ");
-        Vector<Text> temp2 = new Vector<>();
-        for (int i = 0; i < temp1.length; i++){
-            Text set = new Text(temp1[i]);
-            temp2.add(set);
-            //for (int j = 0; j < chosenPhrase.get(i).length; j++){
-            //    temp1.get(i).setText(" ");
-            //}
-            //correctLetters.add(temp1);
+        String[] tempWords = phrases.get(rand).split(" ");
+        for (int i = 0; i < tempWords.length; i++){
+            Vector<Text> tempLetters = new Vector<>();
+            char[] temp = tempWords[i].toCharArray();
+            for(int j = 0; j < temp.length; j++) {
+                Text set = new Text(Character.toString(temp[j]));
+                tempLetters.add(set);
+            }
+            chosenPhrase.add(tempLetters);
+            System.out.println("Got Here " +(i+1) +" times");
+
+        }
+        for(int i = 0; i < chosenPhrase.size(); i++){
+            for(int j = 0; j < chosenPhrase.get(i).size(); j++){
+                System.out.println(chosenPhrase.get(i).get(j).getText());
+            }
+            System.out.println();
         }
     }
 
