@@ -85,7 +85,7 @@ public class Hangman extends Application {
         bigSmile.setType(ArcType.OPEN);
         bigSmile.setFill(Color.BLACK);
 
-        pane.getChildren().addAll(eyeL,eyeR,bigSmile);
+        pane.getChildren().addAll(eyeL,eyeR,wowFace);
 
         //Body
         Line body = new Line(350,200,350,400);
