@@ -89,6 +89,7 @@ public class HangingMan extends Gallows {
 
         LosingSounds.add("src\\music\\skyclad_sound_breath_exhale_sigh_ascend_reverb_eerie_113.mp3");
         LosingSounds.add("src\\music\\scaredScream.mp3");
+        LosingSounds.add("src\\music\\Wilhelm-Scream.mp3");
         CorrectSounds.add("src\\music\\zapsplat_human_male_shout_woo_whoo_happy_14414.mp3");
         CorrectSounds.add("src\\music\\zapsplat_human_male_shout_yeah_happy_celebrate_14415.mp3");
         CorrectSounds.add("src\\music\\reitanna_human_female_funny_says_yay.mp3");
@@ -123,6 +124,7 @@ public class HangingMan extends Gallows {
         int rand = (int)(Math.random()*CorrectSounds.size());
 
         AudioClip sound = new AudioClip(new File(CorrectSounds.get(rand)).toURI().toString());
+        sound.setVolume(7.0);
         sound.play();
 
         if (error > 0) {
@@ -148,6 +150,7 @@ public class HangingMan extends Gallows {
         int rand = (int)(Math.random()*WinningSounds.size());
 
         AudioClip sound = new AudioClip(new File(WinningSounds.get(rand)).toURI().toString());
+        sound.setVolume(7.0);
         sound.play();
     }
 
@@ -160,6 +163,7 @@ public class HangingMan extends Gallows {
         int rand = (int)(Math.random()*LosingSounds.size());
 
         AudioClip sound = new AudioClip(new File(LosingSounds.get(rand)).toURI().toString());
+        sound.setVolume(7.0);
         sound.play();
     }
 
@@ -170,6 +174,7 @@ public class HangingMan extends Gallows {
             super.getChildren().addAll(head,eyeL,eyeR);
 
             AudioClip sound = new AudioClip(new File("src\\music\\zapsplat_office_marker_pen_highlighter_luminous_draw_circle_on_cardboard_001_22929.mp3").toURI().toString());
+            sound.setVolume(7.0);
             sound.play();
         }
 
@@ -178,6 +183,7 @@ public class HangingMan extends Gallows {
             super.getChildren().addAll(body,circle,school);
 
             AudioClip sound = new AudioClip(new File("src\\music\\zapsplat_office_marker_pen_highlighter_luminous_draw_diagram_on_paper_001_22935.mp3").toURI().toString());
+            sound.setVolume(7.0);
             sound.play();
         }
 
@@ -186,6 +192,7 @@ public class HangingMan extends Gallows {
             super.getChildren().add(armL);
 
             AudioClip sound = new AudioClip(new File("src\\music\\zapsplat_office_felt_marker_draw_line_short_fast_thick_cardboard_004_22535.mp3").toURI().toString());
+            sound.setVolume(7.0);
             sound.play();
         }
 
@@ -194,6 +201,7 @@ public class HangingMan extends Gallows {
             super.getChildren().add(armR);
 
             AudioClip sound = new AudioClip(new File("src\\music\\zapsplat_office_felt_marker_draw_line_short_fast_thick_cardboard_004_22535.mp3").toURI().toString());
+            sound.setVolume(7.0);
             sound.play();
         }
 
@@ -210,6 +218,7 @@ public class HangingMan extends Gallows {
             super.getChildren().add(legR);
 
             AudioClip sound = new AudioClip(new File("src\\music\\zapsplat_office_felt_marker_draw_line_short_fast_thick_cardboard_004_22535.mp3").toURI().toString());
+            sound.setVolume(7.0);
             sound.play();
         }
 

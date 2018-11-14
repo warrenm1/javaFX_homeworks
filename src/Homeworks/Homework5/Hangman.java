@@ -47,7 +47,7 @@ public class Hangman extends Application {
         Media media = new Media(new File(GameMusic.get(rand)).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
-        mediaPlayer.setVolume(30);
+        mediaPlayer.setVolume(14.0);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         MediaView mediaView = new MediaView(mediaPlayer);
         Pane pane = new Pane(mediaView);
